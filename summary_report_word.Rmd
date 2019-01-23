@@ -1,0 +1,24 @@
+---
+title: "Summary Report"
+author: "User Name"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: word_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+```
+
+
+
+```{r Interval1}
+x    <- faithful[, 2] 
+bins <- seq(min(x), max(x), length.out = input$bins + 1)
+hist(x, breaks = bins, col = 'darkgray', border = 'white')
+```
+
+
+```{r Interval2, warning = FALSE}
+note_in_md_word(input$markdowninput)
+```
+
+
